@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <h2>
+            Welcome,
+            {{ request.user.first_name }}
+        </h2>
+
+        <p>
+            This is your developer dashboard.
+        </p>
+
+        <hr>
+
+        <a href="{% url 'post_create' %}"
+           class="btn btn-primary">
+
+            Create New Post
+
+        </a>
+
+        <a href="{% url 'edit' %}"
+           class="btn btn-warning">
+
+            Edit Profile
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

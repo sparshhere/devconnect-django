@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Search Posts</h2>
+
+<form method="get">
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+{% if query %}
+
+    <h3>
+        Results for "{{ query }}"
+    </h3>
+
+    {% for post in results %}
+
+        <p>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </p>
+
+    {% empty %}
+
+        <p>No results found.</p>
+
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}
